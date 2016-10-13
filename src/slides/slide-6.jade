@@ -1,0 +1,30 @@
+section.como-usar
+	h5 Como usar?
+	p.fragment
+		small Instalar o node.js
+	p.fragment
+		small Instalar o gulp globalmente usando o npm
+	pre.fragment
+		code
+			| npm install -g gulp
+			| npm i -g gulp
+	p.fragment
+		small Instalar o gulp localmente
+	pre.fragment
+		code
+			| npm init
+			| npm install --save-dev gulp
+			| npm i -D gulp
+	p.fragment
+		small Criar um gulpfile e configurar
+	pre.fragment
+		code
+			| var gulp = require('gulp');
+			| gulp.task('default', function(){
+			|   console.log('Hello');
+			| });
+	p.fragment
+		small Rodar o gulp pela linha de comando
+	pre.fragment
+		code
+			| gulp

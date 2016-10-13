@@ -1,0 +1,88 @@
+section
+	section
+		table.grunt-gulp
+			thead
+				tr
+					th.middle Grunt X Gulp
+					th
+						img(src="img/grunt-icon.png")
+					th
+						img(src="img/gulp-icon.png")
+			tbody
+				tr.fragment
+					td
+						small N° de Módulos (2015)
+					td
+						small 4.672
+					td
+						small 1.577
+				tr.fragment
+					td
+						small N° de Módulos (Atualmente)
+					td
+						small 5.869
+					td
+						small 2.670
+				tr.fragment
+					td
+						small Velocidade
+					td
+						small Mais Lento
+					td
+						small Mais rápido
+				tr.fragment
+					td
+						small Curva de aprendizado
+					td
+						small Maior
+					td
+						small Menor
+				tr.fragment
+					td
+						small Comunidade
+					td
+						small Menor
+					td
+						small Maior
+	section
+		p Grunt
+		pre
+			code
+				| "use strict";
+				| 
+				| module.exports = function(grunt) {
+				|   var appConfig = {
+				|     uglify: {
+				|       options: {
+				|         mangle: false
+				|       },
+				|       dist: {
+				|         files: {
+				|           "/build/app.min.js" : [
+				|             "/src/**/*.js"
+				|           ]
+				|         }
+				|       }
+				|     }
+				|   };
+				| 
+				|   grunt.initConfig(appConfig);
+				| 
+				|   grunt.registerTask("default", ["watch"]);
+				| };
+	section
+		p Gulp
+		pre
+			code
+				| "use strict";
+				| 
+				| var gulp   = require("gulp")
+				|   , uglify = require("gulp-uglify");
+				| 
+				| gulp.task("js", function() {
+				|   gulp.src("/src/js/**/*.js")
+				|   .pipe(uglify({mangle: false}))
+				|   .dest("/build/app.min.js");
+				| });
+				| 
+				| gulp.task("default", ["js"]);
