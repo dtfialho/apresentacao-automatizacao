@@ -1,17 +1,21 @@
 section
-	p gulp-jsdoc
+	p gulp-if
 	p
-		small Gera documentações do código javascript baseado nos comentários escritos
+		small Adiciona a possibilidade de inserir condições e executar diferentes tasks no decorrer do programa
 	pre
 		code
 			| "use strict";
 			| 
-			| var gulp  = require("gulp")
-			|   , jsdoc = require("gulp-jsdoc");
+			| var gulp   = require("gulp")
+			|   , uglify = require("gulp-uglify")
+			|   , gulpif = require("gulp-if")
+			|   , env    = require('minimist')(process.argv.slice(2));
 			| 
-			| gulp.task("docs", function() {
+			| gulp.task("js", function() {
 			|   gulp.src("/src/js/**/*.js")
-			|   .pipe(gulp.dest("/docs"));
+			|   .pipe(concat("app.min.js"))
+			|   .pipe(gulpif(env.p, uglify({mangle: false})))
+			|   .pipe(gulp.dest("/build/js"));
 			| });
 			| 
-			| gulp.task("default", ["docs"]);
+			| gulp.task("default", ["js"]);

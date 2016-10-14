@@ -1,22 +1,17 @@
 section
-	section
-		h2 Utilidades gerais
-	section
-		p Livereload
-			br
-			small Verifica alterações nos arquivos e atualiza o projeto
-		p.fragment BroserSync
-			br
-			small Aplica o livereload e adiciona a possibilidade de sincronizar o browser mesmo estando aberto em uma máquina remota
-		p.fragment Gulp-Concat
-			br
-			small Plugin do gulp para concatenar arquivos
-		p.fragment Babel
-			br
-			small Compila códigos em ES6, coffescript, typescript entre outros para javascript vanilla
-		p.fragment HtmlMin
-			br
-			small Minifica arquivos html
-		p.fragment Jade (Pug)
-			br
-			small Biblioteca javascript para facilitar a escrita do código html
+	p gulp-jsdoc
+	p
+		small Gera documentações do código javascript baseado nos comentários escritos
+	pre
+		code
+			| "use strict";
+			| 
+			| var gulp  = require("gulp")
+			|   , jsdoc = require("gulp-jsdoc");
+			| 
+			| gulp.task("docs", function() {
+			|   gulp.src("/src/js/**/*.js")
+			|   .pipe(gulp.dest("/docs"));
+			| });
+			| 
+			| gulp.task("default", ["docs"]);

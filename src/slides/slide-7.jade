@@ -1,13 +1,18 @@
 section
-	h3 Plugins
-	p.fragment Uglify
-	p.fragment JsHint
-	p.fragment Gulp-Compass (sass) / Gulp-Stylus
-	p.fragment Imagemin
-	p.fragment Gulp-if
-	p.fragment JSDoc
-	p.fragment Livereload / Browsersync
-	p.fragment Gulp-Concat
-	p.fragment Babel
-	p.fragment Htmlmin
-	p.fragment Jade (Pug)
+	h5 API Simples
+	ul
+		li gulp.task(name, [deps], fn)
+			br
+			small define uma tarefa com dependencias opcionais
+		li gulp.src(files)
+			br
+			small adiciona os arquivos que serão adicionadosna tarefa
+		li gulp.dest
+			br
+			small salva a saída dos arquivos no diretório especificado
+		li gulp.watch(files, tasks)
+			br
+			small assiste mudança nos arquivos especificados e executa tarefas específicas
+		li .pipe(fn)
+			br
+			small adiciona uma tarefa dentro da stream em que for chamado

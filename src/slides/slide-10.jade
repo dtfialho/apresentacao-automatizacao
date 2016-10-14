@@ -1,43 +1,18 @@
 section
-	section
-		p gulp-compass
-		p
-			small Compila os arquivos sass / scss além de minificar o código
-		pre
-			code
-				| "use strict";
-				| 
-				| var gulp    = require("gulp")
-				|   , compass = require("gulp-compass");
-				| 
-				| gulp.task("sass", function() {
-				|   gulp.src(["/src/sass/style.sass"])
-				|   .pipe(compass({
-				|     css:   "/build/css/",
-				|     sass:  "/src/sass/",
-				|     style: "compressed"
-				|   }))
-				|   .pipe(gulp.dest("/build/css"));
-				| });
-				| 
-				| gulp.task("default", ["sass"]);
-	section
-		p gulp-stylus
-		p
-			Compila os arquivos stylus além de minificar o código
-		pre
-			code
-				| "use strict";
-				| 
-				| var gulp   = require("gulp")
-				|   , stylus = require("gulp-stylus");
-				| 
-				| gulp.task("stylus", function() {
-				|   gulp.src(["/src/styl/style.styl"])
-				|   .pipe(stylus({
-				|     compress: true
-				|   }))
-				|   .pipe(gulp.dest("/build/css"));
-				| });
-				| 
-				| gulp.task("default", ["stylus"]);
+	p gulp-jshint
+	p
+		small Verifica erros de sintaxe e qualidade do código
+	pre
+		code
+			| "use strict";
+			| 
+			| var gulp   = require("gulp")
+			|   , jshint = require("gulp-jshint");
+			| 
+			| gulp.task("js", function() {
+			|   gulp.src("/src/js/**/*.js")
+			|   .pipe(jshint(".jshintrc"))
+			|   .pipe(jshint.reporter("jshint-stylish"));
+			| });
+			| 
+			| gulp.task("default", ["js"]);

@@ -1,21 +1,18 @@
 section
-	p gulp-if
+	p gulp-imagemin
 	p
-		small Adiciona a possibilidade de inserir condições e executar diferentes tasks no decorrer do programa
+		small Otimiza arquivos jpeg, gif, png e svg
 	pre
 		code
 			| "use strict";
 			| 
-			| var gulp   = require("gulp")
-			|   , uglify = require("gulp-uglify")
-			|   , gulpif = require("gulp-if")
-			|   , env    = require('minimist')(process.argv.slice(2));
+			| var gulp     = require("gulp")
+			|   , imagemin = require("gulp-imagemin");
 			| 
-			| gulp.task("js", function() {
-			|   gulp.src("/src/js/**/*.js")
-			|   .pipe(concat("app.min.js"))
-			|   .pipe(gulpif(env.p, uglify({mangle: false})))
-			|   .pipe(gulp.dest("/build/js"));
+			| gulp.task("imagemin", function() {
+			|   gulp.src("/src/img/**")
+			|   .pipe(imagemin())
+			|   .pipe(gulp.dest("/build/img"));
 			| });
 			| 
-			| gulp.task("default", ["js"]);
+			| gulp.task("default", ["imagemin"]);

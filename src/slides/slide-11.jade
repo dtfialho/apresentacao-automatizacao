@@ -1,18 +1,43 @@
 section
-	p gulp-imagemin
-	p
-		small Otimiza arquivos jpeg, gif, png e svg
-	pre
-		code
-			| "use strict";
-			| 
-			| var gulp     = require("gulp")
-			|   , imagemin = require("gulp-imagemin");
-			| 
-			| gulp.task("imagemin", function() {
-			|   gulp.src("/src/img/**")
-			|   .pipe(imagemin())
-			|   .pipe(gulp.dest("/build/img"));
-			| });
-			| 
-			| gulp.task("default", ["imagemin"]);
+	section
+		p gulp-compass
+		p
+			small Compila os arquivos sass / scss além de minificar o código
+		pre
+			code
+				| "use strict";
+				| 
+				| var gulp    = require("gulp")
+				|   , compass = require("gulp-compass");
+				| 
+				| gulp.task("sass", function() {
+				|   gulp.src(["/src/sass/style.sass"])
+				|   .pipe(compass({
+				|     css:   "/build/css/",
+				|     sass:  "/src/sass/",
+				|     style: "compressed"
+				|   }))
+				|   .pipe(gulp.dest("/build/css"));
+				| });
+				| 
+				| gulp.task("default", ["sass"]);
+	section
+		p gulp-stylus
+		p
+			small Compila os arquivos stylus além de minificar o código
+		pre
+			code
+				| "use strict";
+				| 
+				| var gulp   = require("gulp")
+				|   , stylus = require("gulp-stylus");
+				| 
+				| gulp.task("stylus", function() {
+				|   gulp.src(["/src/styl/style.styl"])
+				|   .pipe(stylus({
+				|     compress: true
+				|   }))
+				|   .pipe(gulp.dest("/build/css"));
+				| });
+				| 
+				| gulp.task("default", ["stylus"]);

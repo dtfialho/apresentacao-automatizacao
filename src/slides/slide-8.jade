@@ -1,20 +1,24 @@
-section
-	p gulp-uglify
-	p
-		small Minifica e otimiza os arquivos javascript
-	pre
-		code
-			| "use strict";
-			| 
-			| var gulp   = require("gulp")
-			|   , uglify = require("gulp-uglify")
-			|   , concat = require("gulp-concat");
-			| 
-			| gulp.task("js", function() {
-			|   gulp.src("/src/js/**/*.js")
-			|   .pipe(concat("app.min.js"))
-			|   .pipe(uglify({mangle: false}))
-			|   .pipe(gulp.dest("/build/js"));
-			| });
-			| 
-			| gulp.task("default", ["js"]);
+section.plugins
+	h4 Plugins
+	p.fragment
+		small Uglify
+	p.fragment
+		small JsHint
+	p.fragment
+		small Gulp-Compass (sass) / Gulp-Stylus
+	p.fragment
+		small Imagemin
+	p.fragment
+		small Gulp-if
+	p.fragment
+		small JSDoc
+	p.fragment
+		small Livereload / Browsersync
+	p.fragment
+		small Gulp-Concat
+	p.fragment
+		small Babel
+	p.fragment
+		small Htmlmin
+	p.fragment
+		small Jade (Pug)
