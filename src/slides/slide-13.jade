@@ -1,0 +1,17 @@
+section
+	p gulp-jsdoc
+	p
+		small Gera documentações do código javascript baseado nos comentários escritos
+	pre
+		code
+			| "use strict";
+			| 
+			| var gulp  = require("gulp")
+			|   , jsdoc = require("gulp-jsdoc");
+			| 
+			| gulp.task("docs", function() {
+			|   gulp.src("/src/js/**/*.js")
+			|   .pipe(gulp.dest("/docs"));
+			| });
+			| 
+			| gulp.task("default", ["docs"]);

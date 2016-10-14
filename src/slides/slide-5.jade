@@ -82,7 +82,7 @@ section
 				| gulp.task("js", function() {
 				|   gulp.src("/src/js/**/*.js")
 				|   .pipe(uglify({mangle: false}))
-				|   .dest("/build/app.min.js");
+				|   .pipe(gulp.dest("/build/app.min.js"));
 				| });
 				| 
 				| gulp.task("default", ["js"]);

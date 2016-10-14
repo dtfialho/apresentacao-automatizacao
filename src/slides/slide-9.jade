@@ -1,0 +1,18 @@
+section
+	p gulp-jshint
+	p
+		small Verifica erros de sintaxe e qualidade do código
+	pre
+		code
+			| "use strict";
+			| 
+			| var gulp   = require("gulp")
+			|   , jshint = require("gulp-jshint");
+			| 
+			| gulp.task("js", function() {
+			|   gulp.src("/src/js/**/*.js")
+			|   .pipe(jshint(".jshintrc"))
+			|   .pipe(jshint.reporter("jshint-stylish"));
+			| });
+			| 
+			| gulp.task("default", ["js"]);

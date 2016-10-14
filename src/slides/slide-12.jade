@@ -1,0 +1,21 @@
+section
+	p gulp-if
+	p
+		small Adiciona a possibilidade de inserir condições e executar diferentes tasks no decorrer do programa
+	pre
+		code
+			| "use strict";
+			| 
+			| var gulp   = require("gulp")
+			|   , uglify = require("gulp-uglify")
+			|   , gulpif = require("gulp-if")
+			|   , env    = require('minimist')(process.argv.slice(2));
+			| 
+			| gulp.task("js", function() {
+			|   gulp.src("/src/js/**/*.js")
+			|   .pipe(concat("app.min.js"))
+			|   .pipe(gulpif(env.p, uglify({mangle: false})))
+			|   .pipe(gulp.dest("/build/js"));
+			| });
+			| 
+			| gulp.task("default", ["js"]);
